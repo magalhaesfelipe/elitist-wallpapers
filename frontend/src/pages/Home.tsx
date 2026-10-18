@@ -1,16 +1,14 @@
-// import axios from "axios";
-
+import { useState } from "react";
 import { generateUrlStrings } from "../constants/folderStructure";
 
 export const Home = () => {
+	const [currentFolderName, setCurrentFolderName] = useState("minimal");
 	const baseUrl =
 		"https://raw.githubusercontent.com/magalhaesfelipe/wallpapers/refs/heads/main/minimal";
-	const urls = generateUrlStrings("minimal");
+
+	const urls = generateUrlStrings(currentFolderName);
+
 	console.log("🐟 - urls:", urls);
-	// const baseUrl = 'https://raw.githubusercontent.com/magalhaesfelipe/wallpapers/refs/heads/main/';
-	// async function fetchImage() {
-	// 	const res = await axios("https://raw.githubusercontent.com/magalhaesfelipe/wallpapers/refs/heads/main/organize/ai-digital/pale-girl-field.png");
-	// }
 
 	return (
 		<div className="px-3 py-10 ">
