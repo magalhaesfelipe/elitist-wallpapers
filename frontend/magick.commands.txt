@@ -1,0 +1,2 @@
+# Convert all png files to jpg, and exclude them later
+magick mogrify -format jpg *.png && rm *.png
