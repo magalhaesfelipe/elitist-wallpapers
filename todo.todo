@@ -1,0 +1,12 @@
+[ ] display the github star count(stargazers_count) of the project using the following url to fetch the repo data:
+https://api.github.com/repos/magalhaesfelipe/elitist-wallpapers
+
+[ ] add github icon with the link to the project in the top left corner of the Header
+
+[ ] add an about icon that redirect to the `About` page
+
+[ ] add a footer with the about/contact info
+
+[ ] add button to download wallpaper in the wallpaper block(separate the component)
+
+[ ] add a loading state to wait the wallpaper load
