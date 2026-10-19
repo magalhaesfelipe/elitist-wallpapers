@@ -3,6 +3,10 @@ export const folders = {
 		name: "minimal",
 		size: 23,
 	},
+	painting: {
+		name: "painting",
+		size: 0,
+	},
 };
 
 export function generateUrlStrings(folderName: keyof typeof folders) {
