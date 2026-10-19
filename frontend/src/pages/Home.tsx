@@ -4,12 +4,7 @@ import { Categories } from "../components/Categories";
 
 export const Home = () => {
 	const [currentFolderName, setCurrentFolderName] = useState("minimal");
-	const baseUrl =
-		"https://raw.githubusercontent.com/magalhaesfelipe/wallpapers/refs/heads/main/minimal";
-
 	const urls = generateUrlStrings(currentFolderName);
-
-	console.log("🐟 - urls:", urls);
 
 	return (
 		<div className="px-3 pb-10 pt-0 ">
@@ -18,7 +13,7 @@ export const Home = () => {
 				setCurrentFolderName={setCurrentFolderName}
 			/>
 			<div className="grid grid-cols-3 gap-6">
-				{urls?.map((item, i) => (
+				{urls?.map((url, i) => (
 					<div
 						key={i}
 						className="relative hover:scale-[1.02]   group transition duration-300  "
@@ -34,7 +29,7 @@ export const Home = () => {
 						"
 						></div>
 						<img
-							src={`${baseUrl}/${item}.png`}
+							src={url}
 							alt=""
 							className="w-full hover:border-white/20 border-2  border-transparent h-full group-hover:border-white/20 object-cover rounded-2xl "
 						/>
