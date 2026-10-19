@@ -23,7 +23,7 @@ export const Categories = ({
 					className="border-r-2 border-bg2 px-4 "
 				>
 					<div className="hover:-translate-y-0.5	transition duration-200">
-						{f?.name}
+						{f?.label}
 					</div>
 				</button>
 			))}
