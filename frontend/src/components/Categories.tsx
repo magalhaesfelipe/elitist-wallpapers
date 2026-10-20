@@ -14,18 +14,14 @@ export const Categories = ({
 	selectedFolder,
 	setSelectedFolder,
 }: CategoryProps) => {
-	console.log("🐟 - Categories - selectedFolder:", selectedFolder);
-	console.log("🐟 - Categories - currentFolderName:", currentFolderName);
-	console.log("🐟 - Categories - selectedFolder:", selectedFolder);
 	const [showDropdown, setShowDropdown] = useState("");
 
 	return (
-		<div className=" px-2 py-4 flex items-center gap-2">
+		<div className="flex items-center gap-2">
 			{Object.values(folders)?.map((folder, i) => {
 				const hasSubcategories = !folder.quantity;
 				const subCategories = Object.values(folder).flatMap((sub) => sub);
 
-				console.log(showDropdown);
 				return (
 					<button
 						key={i}
@@ -36,7 +32,7 @@ export const Categories = ({
 							setCurrentFolderName(folder?.name);
 							setSelectedFolder(folder);
 						}}
-						className="border-r-2 border-bg2 px-4 cursor-pointer"
+						className="border-b-2 pb-2 border-bg2 px-4 cursor-pointer"
 					>
 						<div
 							onClick={() => {
@@ -57,9 +53,10 @@ export const Categories = ({
 										subCategories.some(
 											(sub: any) => sub?.parentID === folder.id,
 										)
-											? "#fff7c7 "
-											: "#fff6 ",
+											? "#fffff0"
+											: "#fff6",
 								}}
+								className="text-sm"
 							>
 								{currentFolderName.includes(folder?.categoryLabel)
 									? `${String(currentFolderName).replace("/", " : ")}`
@@ -71,7 +68,6 @@ export const Categories = ({
 								className={`${showDropdown === folder.categoryLabel ? "visible border-2 border-bg2 translate-y-0 scale-100 opacity-100 " : "border-2 border-transparent pointer-events-none invisible translate-y-2 scale-95 opacity-0"} z-10 bg-bg transition ease-out duration-200 absolute bottom-[130%] px-4 py-2 rounded-md`}
 							>
 								{Object.values(folder).flatMap((sf, i) => {
-									console.log("🐟 - Categories - sf:", sf);
 									return (
 										<div
 											key={i}

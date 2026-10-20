@@ -1,17 +1,19 @@
+import { Icon } from "@iconify/react";
+
 export const Header = () => {
 	return (
-		<div className=" border-b rounded-b-md flex justify-center items-center w-full ">
-			<div className="w-full flex flex-col  py-31 gap-3.5 items-center">
-				<div className="flex flex-col leading-tight ">
-					<h1 className="text-highlight font-normal text-4xl leading-8">
-						Elitist
-					</h1>
-					<h1 className="text-highlight font-normal text-7xl">Wallpapers</h1>
+		<div className="text-white border-b border-white/5 px-[5%] py-5.5">
+			<div className="justify-between flex items-center">
+				{/* <h3>Ellitis Wallpapers</h3> */}
+				<div className="size-15">
+					<img src="/logo.svg" alt="" />
 				</div>
-
-				<span className="font-normal text-base2 text-[15px]">
-					A CURATED COLLECTION OF HIGH QUALITY WALLPAPERS
-				</span>
+				<div>
+					<div className="flex bg-bg3 items-center  gap-4 border border-white/15 shadow-lg py-2.5 px-3 rounded-full">
+						<Icon icon="akar-icons:github-fill" className="cursor-pointer" />
+						<Icon icon="bi:info-circle" className="cursor-pointer" />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
