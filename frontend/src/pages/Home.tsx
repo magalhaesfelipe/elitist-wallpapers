@@ -4,13 +4,18 @@ import { Categories } from "../components/Categories";
 
 export const Home = () => {
 	const [currentFolderName, setCurrentFolderName] = useState("minimal");
-	const urls = generateUrlStrings(currentFolderName);
+	console.log("🐟 - Home - currentFolderName:", currentFolderName);
+	const [selectedFolder, setSelectedFolder] = useState({});
+	const urls = generateUrlStrings(currentFolderName, selectedFolder);
+	console.log("🐟 - Home - urls:", urls);
 
 	return (
 		<div className="px-3 pb-10 pt-0 ">
 			<Categories
 				currentFolderName={currentFolderName}
 				setCurrentFolderName={setCurrentFolderName}
+				selectedFolder={selectedFolder}
+				setSelectedFolder={setSelectedFolder}
 			/>
 			<div className="grid grid-cols-3 gap-6">
 				{urls?.map((url, i) => (
