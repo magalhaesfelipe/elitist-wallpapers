@@ -3,6 +3,7 @@ import { folders, generateUrlStrings } from "../constants/folderStructure";
 import { Categories } from "../components/Categories";
 import { HeaderTitle } from "../components/HeaderTitle";
 import { Icon } from "@iconify/react";
+import { Footer } from "../components/Footer";
 
 export const Home = () => {
 	const initialFolder = folders?.minimal;
@@ -89,6 +90,8 @@ export const Home = () => {
 					))}
 				</div>
 			</div>
+
+			<Footer />
 		</>
 	);
 };
