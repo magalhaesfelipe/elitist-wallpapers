@@ -1,7 +1,7 @@
 export const HeaderTitle = () => {
 	return (
 		<div className=" flex justify-center items-center w-full ">
-			<div className="w-full flex flex-col  py-27 gap-3.5 items-center">
+			<div className="w-full flex flex-col  py-19 gap-3.5 items-center">
 				<div className="flex flex-col leading-tight ">
 					<h1 className="text-highlight font-normal text-4xl leading-8">
 						Elitist
