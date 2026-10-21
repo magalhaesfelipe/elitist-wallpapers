@@ -4,6 +4,7 @@ https://api.github.com/repos/magalhaesfelipe/elitist-wallpapers
 [ ] add a footer with the about/contact info
 [ ] add button to download the wallpaper in the wallpaper block(separate the component)
 [ ] add a loading state to wait the wallpaper load
+[ ] change scrollbar style to fit the bg color
 
 10-20-2026
 [x] add github icon with the link to the project in the top left corner of the Header
