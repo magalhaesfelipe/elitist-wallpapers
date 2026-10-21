@@ -67,7 +67,7 @@ export const Categories = ({
 							<div
 								className={`${showDropdown === folder.categoryLabel ? "visible border-2 border-bg2 translate-y-0 scale-100 opacity-100 " : "border-2 border-transparent pointer-events-none invisible translate-y-2 scale-95 opacity-0"} z-10 bg-bg transition ease-out duration-200 absolute bottom-[130%] px-4 py-2 rounded-md`}
 							>
-								{Object.values(folder).flatMap((sf, i) => {
+								{Object.values(folder).flatMap((sf: any, i) => {
 									return (
 										<div
 											key={i}
