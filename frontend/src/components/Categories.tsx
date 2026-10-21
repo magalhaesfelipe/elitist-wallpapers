@@ -17,7 +17,7 @@ export const Categories = ({
 	const [showDropdown, setShowDropdown] = useState("");
 
 	return (
-		<div className="flex items-center gap-2">
+		<div className="flex items-center gap-2" onBlur={() => setShowDropdown("")}>
 			{Object.values(folders)?.map((folder, i) => {
 				const hasSubcategories = !folder.quantity;
 				const subCategories = Object.values(folder).flatMap((sub) => sub);
@@ -29,10 +29,10 @@ export const Categories = ({
 							if (hasSubcategories) return;
 							if (selectedFolder.id === folder?.id) return;
 
-							setCurrentFolderName(folder?.name);
+							setCurrentFolderName(folder?.categoryLabel);
 							setSelectedFolder(folder);
 						}}
-						className="border-b-2 pb-2 border-bg2 px-4 cursor-pointer"
+						className="border-b pb-2 border-bg2 px-4 cursor-pointer"
 					>
 						<div
 							onClick={() => {
@@ -49,17 +49,17 @@ export const Categories = ({
 							<span
 								style={{
 									color:
-										selectedFolder.id === folder.id ||
-										subCategories.some(
-											(sub: any) => sub?.parentID === folder.id,
+										selectedFolder.path.includes(folder?.categoryLabel) ||
+										subCategories.some((s: any) =>
+											selectedFolder?.path?.includes(s?.categoryLabel),
 										)
 											? "#fffff0"
 											: "#fff6",
 								}}
 								className="text-sm"
 							>
-								{currentFolderName.includes(folder?.categoryLabel)
-									? `${String(currentFolderName).replace("/", " : ")}`
+								{currentFolderName?.includes(folder?.categoryLabel)
+									? `${String(selectedFolder?.path).replace("/", " : ")}`
 									: folder?.categoryLabel}
 							</span>
 
