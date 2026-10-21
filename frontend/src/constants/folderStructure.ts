@@ -15,13 +15,13 @@ export const folders: Folder = {
 		id: 2,
 		categoryLabel: "ai-digital",
 		quantity: 15,
-		path: "minimal",
+		path: "ai-digital",
 	},
 	painting: {
 		id: 3,
 		categoryLabel: "painting",
 		quantity: 25,
-		path: "minimal",
+		path: "painting",
 	},
 	photography: {
 		id: 4,
@@ -126,11 +126,8 @@ export const folders: Folder = {
 };
 
 export function generateUrlStrings(folderName: string, selectedFolder: any) {
-	console.log("🐟 - generateUrlStrings - folderName:", folderName);
-	console.log("🐟 - generateUrlStrings - selectedFolder:", selectedFolder);
-
 	const urlStrings = Array.from(
-		{ length: selectedFolder.quantity },
+		{ length: selectedFolder?.quantity },
 		(_, i) => `${baseUrl}/${folderName}/${i + 1}.jpg`,
 	);
 
