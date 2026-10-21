@@ -1,6 +1,6 @@
 10-21-2026
 [x] add button to download the wallpaper in the wallpaper block(separate the component)
-[ ] add a footer with the about/contact info
+[x] add a footer with the about/contact info
 [ ] change scrollbar style to fit the bg color
 [ ] display the github star count(stargazers_count) of the project using the following url to fetch the repo data:
 https://api.github.com/repos/magalhaesfelipe/elitist-wallpapers
