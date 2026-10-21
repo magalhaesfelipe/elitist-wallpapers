@@ -47,7 +47,6 @@ export const Footer = () => {
 					<a
 						href="https://github.com/magalhaesfelipe/elitist-wallpapers"
 						target="_blank"
-						rel="noopener noreferrer"
 					>
 						<option value="" className="hover:text-highlight2 cursor-pointer">
 							{`→ GITHUB`}
