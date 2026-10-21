@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 
 export const Header = () => {
 	return (
-		<div className="text-white border-b border-white/5 px-[8.5%] py-4">
+		<div className="text-white border-b border-white/5 px-[8.8%] py-4">
 			<div className="justify-between flex items-center">
 				<div className="flex items-center gap-2">
 					<Icon icon="boxicons:image-alt" className="size-10 text-highlight2" />
