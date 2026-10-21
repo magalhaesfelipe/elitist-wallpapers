@@ -12,6 +12,21 @@
 	--color-bg3: #0f0f0f;
 }
 
+/* Scrollbar style */
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-bg2);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #575758;
+	border-radius: 3px;
+	border: 2px solid var(--color-bg2);
+}
+
 body {
 	background-color: #0a0a0a;
 	font-family: "Aspekta Variable", cursive;
