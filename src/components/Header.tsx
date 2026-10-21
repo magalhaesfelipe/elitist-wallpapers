@@ -1,9 +1,39 @@
 import { Icon } from "@iconify/react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export const Header = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
+	const [repoData, setRepoData] = useState<any>();
+	// const [loading, setLoading] = useState(false);
+	console.log("🐟 - Header - repoData:", repoData);
+
+	useEffect(() => {
+		async function fetchRepoData() {
+			try {
+				const response = await fetch(
+					"https://api.github.com/repos/magalhaesfelipe/elitist-wallpapers",
+				);
+				console.log("🐟 - fetchRepoData - response:", response);
+
+				if (!response.ok) {
+					throw new Error("HTTP error " + response.status);
+				}
+
+				const data = await response.json();
+
+				console.log("Data fetched", data);
+				console.log("stars", data?.stargazers_count);
+
+				setRepoData(data);
+			} catch (error) {
+				console.error("Failed to fetch repository data:", error);
+			}
+		}
+
+		fetchRepoData();
+	}, []);
 
 	return (
 		<div className="text-white border-b border-white/5 px-[8.8%] py-4">
@@ -27,6 +57,24 @@ export const Header = () => {
 				<div>
 					<div className="flex bg-bg3 items-center gap-4 border border-white/15 shadow-lg py-1 px-2.5 rounded-full">
 						<div
+							title="Stars on Github"
+							className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-zinc-800 "
+						>
+							<a
+								href="https://github.com/magalhaesfelipe/elitist-wallpapers"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center justify-center gap-0.75"
+							>
+								<Icon
+									icon="ant-design:star-filled"
+									className="cursor-pointer text-[18px]"
+								/>
+								<span className="text-sm">{repoData?.stargazers_count}</span>
+							</a>
+						</div>
+
+						<div
 							title="Source code"
 							className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-zinc-800 "
 						>
@@ -41,6 +89,7 @@ export const Header = () => {
 								/>
 							</a>
 						</div>
+
 						<div
 							title="About"
 							onClick={() => {
