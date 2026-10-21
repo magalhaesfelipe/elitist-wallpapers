@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { generateUrlStrings } from "../constants/folderStructure";
+import { folders, generateUrlStrings } from "../constants/folderStructure";
 import { Categories } from "../components/Categories";
 import { HeaderTitle } from "../components/HeaderTitle";
 
 export const Home = () => {
+	const initialFolder = folders?.minimal;
 	const [currentFolderName, setCurrentFolderName] = useState("minimal");
-	const [selectedFolder, setSelectedFolder] = useState({});
+	const [selectedFolder, setSelectedFolder] = useState(initialFolder);
 	const urls = generateUrlStrings(currentFolderName, selectedFolder);
 
 	return (
