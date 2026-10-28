@@ -11,7 +11,7 @@ export const Home = () => {
 	const [selectedFolder, setSelectedFolder] = useState(initialFolder);
 	const urls = generateUrlStrings(currentFolderName, selectedFolder);
 
-	async function downloadImage(imageUrl, fileName = "wallpaper.jpg") {
+	async function downloadImage(imageUrl: string, fileName = "wallpaper.jpg") {
 		try {
 			// Fetch image data
 			const response = await fetch(imageUrl);
@@ -55,7 +55,7 @@ export const Home = () => {
 					/>
 				</div>
 
-				<div className="grid grid-cols-3 gap-6">
+				<div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6">
 					{urls?.map((url, i) => (
 						<div
 							key={i}
@@ -67,10 +67,9 @@ export const Home = () => {
 										"linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.2) 100%)",
 									willChange: "opacity",
 								}}
-								className="
-						absolute inset-0 rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100
-						"
-							></div>
+								className="absolute inset-0 rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100"
+							>
+              </div>
 
 							<img
 								src={url}

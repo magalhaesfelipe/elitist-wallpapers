@@ -2,10 +2,12 @@
 [x] add button to download the wallpaper in the wallpaper block(separate the component)
 [x] add a footer with the about/contact info
 [x] change scrollbar style to fit the bg color
-[ ] display the github star count(stargazers_count) of the project using the following url to fetch the repo data:
+[x] display the github star count(stargazers_count) of the project using the following url to fetch the repo data:
 https://api.github.com/repos/magalhaesfelipe/elitist-wallpapers
-[ ] add a loading state to wait the wallpaper load
 
 10-20-2026
-[x] add github icon with the link to the project in the top left corner of the Header
+[x] add github icon with the link er the project in the top left corner of the Header
 [x] add an about icon that redirect to the `About` page
+
+10-28-2026
+[ ] add a loading state to wait the wallpaper load
