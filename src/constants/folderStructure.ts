@@ -136,9 +136,17 @@ export const folders: Folder = {
     quantity: 15,
     neoCulture: {
      id: 21,
+     parentID: 20,
      categoryLabel: 'neo-culture',
      path: 'cyber/neo-culture',
      quantity: 7
+    },
+    retro: {
+      id: 22,
+      parentID: 20,
+      categoryLabel: 'retro',
+      path: 'cyber/retro',
+      quantity: 5
     }
   }
 };
