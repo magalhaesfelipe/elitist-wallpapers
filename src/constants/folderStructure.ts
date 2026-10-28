@@ -128,6 +128,12 @@ export const folders: Folder = {
     categoryLabel: "abstract",
     path: "abstract",
     quantity: 6
+  },
+  cyber: {
+    id: 20,
+    categoryLabel: "cyber",
+    path: "cyber",
+    quantity: 15
   }
 };
 
