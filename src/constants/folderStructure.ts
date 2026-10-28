@@ -133,7 +133,13 @@ export const folders: Folder = {
     id: 20,
     categoryLabel: "cyber",
     path: "cyber",
-    quantity: 15
+    quantity: 15,
+    neoCulture: {
+     id: 21,
+     categoryLabel: 'neo-culture',
+     path: 'cyber/neo-culture',
+     quantity: 7
+    }
   }
 };
 
