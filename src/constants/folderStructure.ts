@@ -148,6 +148,12 @@ export const folders: Folder = {
       path: 'cyber/retro',
       quantity: 5
     }
+  },
+  m26jp: {
+    id: 23,
+    categoryLabel: 'm-26.jp',
+    path: 'm-26.jp',
+    quantity: 29
   }
 };
 
