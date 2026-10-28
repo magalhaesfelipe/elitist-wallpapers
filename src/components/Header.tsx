@@ -18,9 +18,9 @@ export const Header = () => {
     localStorage.setItem('theme', newTheme);
 
     if (theme === 'dark') {
-      root?.style.setProperty('--color-bg', '#fff')
+      root?.style.setProperty('--color-bg', '#fff6')
     } else {
-      root?.style.setProperty('--color-bg', '#000')
+      root?.style.setProperty('--color-bg', '#0a0a0a')
     }
     console.log('The value of --color-bg is: ' + computedStyles.getPropertyValue('--color-bg'));
     setTheme(newTheme);
