@@ -160,6 +160,12 @@ export const folders: Folder = {
     categoryLabel: 'solid-color',
     path: 'solid-color',
     quantity: 1
+  },
+  texture: {
+    id: 25,
+    categoryLabel: 'texture',
+    path: 'texture',
+    quantity: 5
   }
 };
 
