@@ -6,8 +6,25 @@ export const Header = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [repoData, setRepoData] = useState<any>();
+
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 	// const [loading, setLoading] = useState(false);
 	console.log("🐟 - Header - repoData:", repoData);
+  
+  function updateTheme() {
+    const root = document.querySelector(':root');
+    const computedStyles = getComputedStyle(root);
+    const newTheme = theme === 'dark' ? 'light' : 'dark' 
+    localStorage.setItem('theme', newTheme);
+
+    if (theme === 'dark') {
+      root?.style.setProperty('--color-bg', '#fff')
+    } else {
+      root?.style.setProperty('--color-bg', '#000')
+    }
+    console.log('The value of --color-bg is: ' + computedStyles.getPropertyValue('--color-bg'));
+    setTheme(newTheme);
+  }  
 
 	useEffect(() => {
 		async function fetchRepoData() {
@@ -99,6 +116,20 @@ export const Header = () => {
 							className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-zinc-800 "
 						>
 							<Icon icon="bi:info-circle" className="cursor-pointer" />
+						</div>
+
+            <div
+							title={theme === 'dark' ? 'Change to light mode' : 'Change to dark mode'}
+							onClick={() => updateTheme()}
+							className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-zinc-800 "
+						>
+            {
+              theme === 'dark' ? (
+                <Icon icon="carbon:light" className="cursor-pointer" />
+              ) : (
+                <Icon icon="carbon:moon" className="cursor-pointer" />
+              )
+            }
 						</div>
 					</div>
 				</div>
