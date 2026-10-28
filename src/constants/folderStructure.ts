@@ -154,6 +154,12 @@ export const folders: Folder = {
     categoryLabel: 'm-26.jp',
     path: 'm-26.jp',
     quantity: 29
+  },
+    solidColor: {
+    id: 24,
+    categoryLabel: 'solid-color',
+    path: 'solid-color',
+    quantity: 1
   }
 };
 
