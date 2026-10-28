@@ -123,6 +123,12 @@ export const folders: Folder = {
 			quantity: 15,
 		},
 	},
+  abstract: {
+    id: 19,
+    categoryLabel: "abstract",
+    path: "abstract",
+    quantity: 6
+  }
 };
 
 export function generateUrlStrings(folderName: string, selectedFolder: any) {
