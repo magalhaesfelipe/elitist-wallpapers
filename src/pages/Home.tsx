@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { folders, generateUrlStrings } from "../constants/folderStructure";
-import { Categories } from "../components/Categories";
+// import { Categories } from "../components/Categories";
 import { HeaderTitle } from "../components/HeaderTitle";
 import { Icon } from "@iconify/react";
 import { Footer } from "../components/Footer";
+import { Categories2 } from "../components/Categories2";
 
 export const Home = () => {
-	const initialFolder = folders?.minimal;
+	const initialFolder = folders[0];
 	const [currentFolderName, setCurrentFolderName] = useState("minimal");
 	const [selectedFolder, setSelectedFolder] = useState(initialFolder);
 	const urls = generateUrlStrings(currentFolderName, selectedFolder);
@@ -47,7 +48,7 @@ export const Home = () => {
 			<div className="px-3 pb-10 pt-0 ">
 				<div className="flex px-1.5 pb-4 py-2 flex-col gap-1 w-full">
 					<h4 className=" text-[9px]   text-base2">CATEGORIES</h4>
-					<Categories
+					<Categories2
 						currentFolderName={currentFolderName}
 						setCurrentFolderName={setCurrentFolderName}
 						selectedFolder={selectedFolder}
@@ -68,8 +69,7 @@ export const Home = () => {
 									willChange: "opacity",
 								}}
 								className="absolute inset-0 rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100"
-							>
-              </div>
+							></div>
 
 							<img
 								src={url}
