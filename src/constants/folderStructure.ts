@@ -165,7 +165,7 @@ export const folders: Folder = {
     id: 25,
     categoryLabel: 'texture',
     path: 'texture',
-    quantity: 5
+    quantity: 4
   }
 };
 
