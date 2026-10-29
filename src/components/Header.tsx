@@ -12,7 +12,7 @@ export const Header = () => {
 	console.log("🐟 - Header - repoData:", repoData);
   
   function updateTheme() {
-    const root = document.querySelector(':root');
+    const root = document.documentElement;
     const computedStyles = getComputedStyle(root);
     const newTheme = theme === 'dark' ? 'light' : 'dark' 
     localStorage.setItem('theme', newTheme);
