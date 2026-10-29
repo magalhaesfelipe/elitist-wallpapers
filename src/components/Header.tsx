@@ -7,24 +7,26 @@ export const Header = () => {
 	const navigate = useNavigate();
 	const [repoData, setRepoData] = useState<any>();
 
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+	const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 	// const [loading, setLoading] = useState(false);
-	console.log("🐟 - Header - repoData:", repoData);
-  
-  function updateTheme() {
-    const root = document.documentElement;
-    const computedStyles = getComputedStyle(root);
-    const newTheme = theme === 'dark' ? 'light' : 'dark' 
-    localStorage.setItem('theme', newTheme);
 
-    if (theme === 'dark') {
-      root?.style.setProperty('--color-bg', '#fff6')
-    } else {
-      root?.style.setProperty('--color-bg', '#0a0a0a')
-    }
-    console.log('The value of --color-bg is: ' + computedStyles.getPropertyValue('--color-bg'));
-    setTheme(newTheme);
-  }  
+	function updateTheme() {
+		const root = document.documentElement;
+		const computedStyles = getComputedStyle(root);
+		const newTheme = theme === "dark" ? "light" : "dark";
+		localStorage.setItem("theme", newTheme);
+
+		if (theme === "dark") {
+			root?.style.setProperty("--color-bg", "#fff6");
+		} else {
+			root?.style.setProperty("--color-bg", "#0a0a0a");
+		}
+		// console.log(
+		// 	"The value of --color-bg is: " +
+		// 		computedStyles.getPropertyValue("--color-bg"),
+		// );
+		setTheme(newTheme);
+	}
 
 	useEffect(() => {
 		async function fetchRepoData() {
@@ -32,16 +34,12 @@ export const Header = () => {
 				const response = await fetch(
 					"https://api.github.com/repos/magalhaesfelipe/elitist-wallpapers",
 				);
-				console.log("🐟 - fetchRepoData - response:", response);
 
 				if (!response.ok) {
 					throw new Error("HTTP error " + response.status);
 				}
 
 				const data = await response.json();
-
-				console.log("Data fetched", data);
-				console.log("stars", data?.stargazers_count);
 
 				setRepoData(data);
 			} catch (error) {
@@ -118,18 +116,20 @@ export const Header = () => {
 							<Icon icon="bi:info-circle" className="cursor-pointer" />
 						</div>
 
-            <div
-							title={theme === 'dark' ? 'Change to light mode' : 'Change to dark mode'}
+						<div
+							title={
+								theme === "dark"
+									? "Change to light mode"
+									: "Change to dark mode"
+							}
 							onClick={() => updateTheme()}
 							className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-zinc-800 "
 						>
-            {
-              theme === 'dark' ? (
-                <Icon icon="carbon:light" className="cursor-pointer" />
-              ) : (
-                <Icon icon="carbon:moon" className="cursor-pointer" />
-              )
-            }
+							{theme === "dark" ? (
+								<Icon icon="carbon:light" className="cursor-pointer" />
+							) : (
+								<Icon icon="carbon:moon" className="cursor-pointer" />
+							)}
 						</div>
 					</div>
 				</div>
