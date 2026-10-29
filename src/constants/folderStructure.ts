@@ -1,173 +1,238 @@
 const baseUrl = "https://magalhaesfelipe.github.io/wallpapers";
 
-type Folder = {
-	[key: string]: any;
-};
+type Folder = any[];
 
-export const folders: Folder = {
-	minimal: {
+export const folders: Folder = [
+	{
+		title: "minimal",
 		id: 1,
 		categoryLabel: "minimal",
-		quantity: 23,
 		path: "minimal",
+		quantity: 23,
+		subCategories: [],
 	},
-	aiDigital: {
+	{
+		title: "aiDigital",
 		id: 2,
 		categoryLabel: "ai-digital",
-		quantity: 15,
 		path: "ai-digital",
+		quantity: 15,
+		subCategories: [],
 	},
-	painting: {
+	{
+		title: "painting",
 		id: 3,
 		categoryLabel: "painting",
-		quantity: 25,
 		path: "painting",
+		quantity: 25,
+		subCategories: [],
 	},
-	photography: {
+	{
+		title: "photography",
 		id: 4,
 		categoryLabel: "photography",
 		path: "photography",
-		architecture: {
-			id: 5,
-			parentID: 4,
-			categoryLabel: "architecture",
-			path: "photography/architecture",
-			quantity: 6,
-		},
-		nature: {
-			id: 6,
-			parentID: 4,
-			categoryLabel: "nature",
-			path: "photography/nature",
-			quantity: 12,
-		},
-		city: {
-			id: 7,
-			parentID: 4,
-			categoryLabel: "city",
-			path: "photography/city",
-			quantity: 16,
-		},
-		coding: {
-			id: 8,
-			parentID: 4,
-			categoryLabel: "coding",
-			path: "photography/coding",
-			quantity: 2,
-		},
-		interior: {
-			id: 9,
-			parentID: 4,
-			categoryLabel: "interior",
-			path: "photography/interior",
-			quantity: 6,
-		},
-		mountain: {
-			id: 10,
-			parentID: 4,
-			categoryLabel: "mountain",
-			path: "photography/mountain",
-			quantity: 5,
-		},
-		road: {
-			id: 11,
-			parentID: 4,
-			categoryLabel: "road",
-			path: "photography/road",
-			quantity: 5,
-		},
-		urban: {
-			id: 12,
-			parentID: 4,
-			categoryLabel: "urban",
-			path: "photography/urban",
-			quantity: 15,
-		},
-		japan: {
-			id: 17,
-			parentID: 4,
-			categoryLabel: "Japan",
-			path: "photography/japan",
-			nature: {
-				id: 18,
-				parentID: 17,
-				categoryLabel: "nature",
-				path: "photography/japan/nature",
-				quantity: 7,
+		subCategories: [
+			{
+				categoryLabel: "architecture",
+				id: 5,
+				parentID: 4,
+				path: "photography/architecture",
+				quantity: 6,
+				subCategories: [],
 			},
-		},
+			{
+				id: 6,
+				parentID: 4,
+				categoryLabel: "nature",
+				path: "photography/nature",
+				quantity: 12,
+				subCategories: [],
+			},
+			{
+				id: 7,
+				parentID: 4,
+				categoryLabel: "city",
+				path: "photography/city",
+				quantity: 16,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "coding",
+				id: 8,
+				parentID: 4,
+				path: "photography/coding",
+				quantity: 2,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "interior",
+				id: 9,
+				parentID: 4,
+				path: "photography/interior",
+				quantity: 6,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "mountain",
+				id: 10,
+				parentID: 4,
+				path: "photography/mountain",
+				quantity: 5,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "urban",
+				id: 12,
+				parentID: 4,
+				path: "photography/urban",
+				quantity: 15,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "road",
+				id: 11,
+				parentID: 4,
+				path: "photography/road",
+				quantity: 5,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "japan",
+				id: 17,
+				parentID: 4,
+				path: "photography/japan",
+				subCategories: [
+					{
+						categoryLabel: "urban",
+						id: 88,
+						title: "urban",
+						parentID: 4,
+						path: "photography/japan/urban",
+						subCategories: [
+							{
+								categoryLabel: "day",
+								title: "day",
+								id: 89,
+								parentID: 88,
+								path: "photography/japan/urban/day",
+								quantity: 26,
+								subCategories: [],
+							},
+							{
+								categoryLabel: "night",
+								title: "night",
+								id: 90,
+								parentID: 88,
+								path: "photography/japan/urban/night",
+								quantity: 29,
+								subCategories: [],
+							},
+						],
+					},
+					{
+						categoryLabel: "nature",
+						title: "nature",
+						id: 18,
+						parentID: 17,
+						path: "photography/japan/nature",
+						quantity: 7,
+						subCategories: [],
+					},
+				],
+			},
+		],
 	},
-	animeManga: {
+	{
+		title: "animeManga",
 		id: 13,
 		categoryLabel: "anime-manga",
 		path: "anime-manga",
-		anime: {
-			id: 14,
-			parentID: 13,
-			categoryLabel: "anime",
-			path: "anime-manga/anime",
-			quantity: 22,
-		},
-		manga: {
-			id: 15,
-			parentID: 13,
-			categoryLabel: "manga",
-			path: "anime-manga/manga",
-			quantity: 27,
-		},
-		evangellion: {
-			id: 16,
-			parentID: 13,
-			categoryLabel: "evangellion",
-			path: "anime-manga/evangellion",
-			quantity: 15,
-		},
+		subCategories: [
+			{
+				categoryLabel: "anime",
+				id: 14,
+				parentID: 13,
+				path: "anime-manga/anime",
+				quantity: 22,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "manga",
+				id: 15,
+				parentID: 13,
+				path: "anime-manga/manga",
+				quantity: 27,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "evangellion",
+				id: 16,
+				parentID: 13,
+				path: "anime-manga/evangellion",
+				quantity: 15,
+				subCategories: [],
+			},
+		],
 	},
-  abstract: {
-    id: 19,
-    categoryLabel: "abstract",
-    path: "abstract",
-    quantity: 6
-  },
-  cyber: {
-    id: 20,
-    categoryLabel: "cyber",
-    path: "cyber",
-    quantity: 15,
-    neoCulture: {
-     id: 21,
-     parentID: 20,
-     categoryLabel: 'neo-culture',
-     path: 'cyber/neo-culture',
-     quantity: 7
-    },
-    retro: {
-      id: 22,
-      parentID: 20,
-      categoryLabel: 'retro',
-      path: 'cyber/retro',
-      quantity: 5
-    }
-  },
-  m26jp: {
-    id: 23,
-    categoryLabel: 'm-26.jp',
-    path: 'm-26.jp',
-    quantity: 29
-  },
-    solidColor: {
-    id: 24,
-    categoryLabel: 'solid-color',
-    path: 'solid-color',
-    quantity: 1
-  },
-  texture: {
-    id: 25,
-    categoryLabel: 'texture',
-    path: 'texture',
-    quantity: 4
-  }
-};
+	{
+		title: "abstract",
+		id: 19,
+		categoryLabel: "abstract",
+		path: "abstract",
+		quantity: 6,
+		subCategories: [],
+	},
+	{
+		title: "cyber",
+		id: 20,
+		categoryLabel: "cyber",
+		path: "cyber",
+		quantity: 15,
+		subCategories: [
+			{
+				categoryLabel: "neo-culture",
+				id: 21,
+				parentID: 20,
+				path: "cyber/neo-culture",
+				quantity: 7,
+				subCategories: [],
+			},
+			{
+				categoryLabel: "retro",
+				id: 22,
+				parentID: 20,
+				path: "cyber/retro",
+				quantity: 5,
+				subCategories: [],
+			},
+		],
+	},
+	{
+		categoryLabel: "m-26.jp",
+		title: "m26jp",
+		id: 23,
+		path: "m-26.jp",
+		quantity: 29,
+		subCategories: [],
+	},
+	{
+		title: "solidColor",
+		id: 24,
+		categoryLabel: "solid-color",
+		path: "solid-color",
+		quantity: 1,
+		subCategories: [],
+	},
+	{
+		title: "texture",
+		id: 25,
+		categoryLabel: "texture",
+		path: "texture",
+		quantity: 4,
+		subCategories: [],
+	},
+];
 
 export function generateUrlStrings(folderName: string, selectedFolder: any) {
 	const urlStrings = Array.from(
