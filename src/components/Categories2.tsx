@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { folders } from "../constants/folderStructure";
 
 interface CategoryProps {
@@ -6,6 +5,8 @@ interface CategoryProps {
   setCurrentFolderName: (name: string) => void;
   selectedFolder: Record<string, any>;
   setSelectedFolder: (name: string) => void;
+  showSubDropdown: string[];
+  setShowSubDropdown: (paths: string[]) => void;
 }
 
 export const Categories2 = ({
@@ -13,67 +14,75 @@ export const Categories2 = ({
   setCurrentFolderName,
   selectedFolder,
   setSelectedFolder,
+  showSubDropdown,
+  setShowSubDropdown,
 }: CategoryProps) => {
-  const [showDropdown, setShowDropdown] = useState("");
-  const [showSubDropdown, setShowSubDropdown] = useState("");
-  console.log("🐟 - Categories2 - showSubDropdown:", showSubDropdown);
   console.log("currentFolderName", currentFolderName);
+  console.log("selectedFolder ", selectedFolder);
 
-  function renderOptions(folder) {
+  const togglePath = (path: string) => {
+    if (showSubDropdown.includes(path)) {
+      setShowSubDropdown(showSubDropdown.filter((p) => !p.startsWith(path)));
+    } else {
+      setShowSubDropdown([...showSubDropdown, path]);
+    }
+  };
+
+  function renderOptions(folder, inDropdown = false) {
     if (folder.subCategories?.length === 0) {
-      // console.log("CATEGORY LABEL: ", folder?.categoryLabel);
       return (
         <button
-          onClick={() => {
+          onMouseDown={() => {
             setSelectedFolder(folder);
             setCurrentFolderName(folder?.categoryLabel);
           }}
-          style={{
-            color:
-              currentFolderName === folder?.categoryLabel ? "#f0dda4" : "#fff6",
-          }}
-          className="border-b-2 border-bg2 font-semibold w-full text-center  hover:text-base1 px-2 pb-1 cursor-pointer transition duration-150 text-[13px]"
+          className={`bg-bg hover:bg-bg3 hover:text-base1 flex items-center justify-center font-semibold w-full text-center px-2 rounded-sm py-1 cursor-pointer transition duration-150 text-[13px] ${
+            currentFolderName === folder?.categoryLabel
+              ? "text-highlight2"
+              : "text-base2"
+          }`}
         >
           {folder?.categoryLabel || "-"}
         </button>
       );
     } else {
-      // console.log("⭐CATEGORY WITH SUB:", folder?.categoryLabel);
       for (let x = 0; x < folder?.subCategories?.length; x++) {
         renderOptions(folder.subCategories[x]);
-        // return (
-        // 	<div className="bg-red-400 text-black font-semibold px-2 text-sm">
-        // 		{folder.subCategories[x]?.categoryLabel || "-"}
-        // 	</div>
-        // );
       }
 
       return (
-        <div>
+        <div className="relative">
           <button
-            onClick={() => {
-              if (showSubDropdown === folder?.categoryLabel) {
-                setShowSubDropdown("");
-              } else {
-                setShowSubDropdown(folder?.path);
-              }
-            }}
-            style={{
-              color:
-                currentFolderName === folder?.categoryLabel
-                  ? "#f0dda4"
-                  : "#fff6",
-            }}
-            className="border-b-2 border-bg2 text-center font-semibold hover:text-base1 px-2 pb-1 cursor-pointer transition duration-150 text-[13px]"
+            onClick={() => togglePath(folder?.path)}
+            className={`bg-bg hover:bg-bg3 hover:text-base1 flex relative items-center justify-center font-semibold w-full text-center px-2 rounded-sm py-1 cursor-pointer transition duration-150 text-[13px] ${
+              selectedFolder?.path?.includes(folder?.categoryLabel)
+                ? "text-highlight2"
+                : "text-base2"
+            }`}
           >
-            {folder?.categoryLabel || "-"} - 🪧
+            <span
+              className={`text-sm ${
+                selectedFolder.path.includes(folder?.categoryLabel) ||
+                folder?.subCategories?.some((s: any) =>
+                  selectedFolder?.path?.includes(s?.categoryLabel),
+                )
+                  ? "text-base1"
+                  : "text-base2"
+              }`}
+            >
+              {inDropdown
+                ? folder?.categoryLabel
+                : selectedFolder?.path?.includes(folder?.path)
+                  ? selectedFolder?.path?.replaceAll("/", " / ")
+                  : folder?.path?.replaceAll("/", " / ")}
+            </span>
           </button>
 
           {showSubDropdown.includes(folder?.path) && (
-            <div className="bg-bg border-2 border-bg2 rounded-2xl z-50 p-2">
+            <div className="bg-bg border-2 border-bg2 absolute top-full left-0 mt-1 rounded-2xl z-50 p-2 min-w-max">
               {folder?.subCategories.map((sc, i) => (
                 <div key={i} className="p-2 ">
-                  {renderOptions(sc)}
+                  {renderOptions(sc, true)}
                 </div>
               ))}
             </div>
@@ -84,9 +93,9 @@ export const Categories2 = ({
   }
 
   return (
-    <div className="flex items-center gap-2" onBlur={() => setShowDropdown("")}>
+    <div className="flex items-center gap-2">
       {folders?.map((folder, i) => {
-        return <div key={i}>{renderOptions(folder)}</div>;
+        return <div key={i}>{renderOptions(folder, false)}</div>;
       })}
     </div>
   );
