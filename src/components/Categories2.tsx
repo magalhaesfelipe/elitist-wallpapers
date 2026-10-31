@@ -17,12 +17,22 @@ export const Categories2 = ({
 	const [showDropdown, setShowDropdown] = useState("");
 	const [showSubDropdown, setShowSubDropdown] = useState("");
 	console.log("🐟 - Categories2 - showSubDropdown:", showSubDropdown);
+  console.log('currentFolderName', currentFolderName);
 
 	function renderOptions(folder) {
 		if (folder.subCategories?.length === 0) {
 			// console.log("CATEGORY LABEL: ", folder?.categoryLabel);
 			return (
-				<button className="bg-pink-400 px-2 text-black font-semibold text-sm">
+				<button 
+          onClick={() => {
+            setSelectedFolder(folder)
+            setCurrentFolderName(folder?.categoryLabel)
+          }}
+          style={{
+            color: currentFolderName === folder?.categoryLabel ? '#f0dda4' : '#fff6'
+          }}
+          className="border-b-2 border-bg2 font-semibold w-full text-center  hover:text-base1 px-2 pb-1 cursor-pointer transition duration-150 text-[13px]"
+        >
 					{folder?.categoryLabel || "-"}
 				</button>
 			);
@@ -47,17 +57,23 @@ export const Categories2 = ({
 								setShowSubDropdown(folder?.path);
 							}
 						}}
-						className="bg-orange-400 cursor-pointer px-2 text-black font-semibold text-sm"
-					>
+            style={{
+              color: currentFolderName === folder?.categoryLabel ? '#f0dda4' : '#fff6'
+            }}
+            className="border-b-2 border-bg2 text-center font-semibold hover:text-base1 px-2 pb-1 cursor-pointer transition duration-150 text-[13px]"
+          >
 						{folder?.categoryLabel || "-"} - 🪧
 					</button>
 
 					{showSubDropdown.includes(folder?.path) &&
-						folder?.subCategories.map((sc, i) => (
-							<div key={i} className="bg-violet-400 p-2 z-50">
-								{renderOptions(sc)}
-							</div>
-						))}
+            <div className='bg-bg border-2 border-bg2 rounded-2xl z-50 p-2'>
+              {folder?.subCategories.map((sc, i) => (
+                <div key={i} className="p-2 ">
+                  {renderOptions(sc)}
+                </div>
+              ))}
+            </div>
+          }
 				</div>
 			);
 		}
