@@ -2,32 +2,44 @@
 @import "../public/fonts/aspekta/variable/font-face.css";
 
 @theme {
-	--color-highlight: rgb(255, 248, 207);
-	--color-highlight2: #f0dda4;
-	--color-base1: #fffff0;
-	--color-base2: #fff6;
-	--color-base3: rgba(255, 255, 255, 0.6);
-	--color-bg: #0a0a0a;
-	--color-bg2: #232323;
-	--color-bg3: #0f0f0f;
+  --color-highlight: rgb(255, 248, 207);
+  --color-highlight2: #f0dda4;
+  --color-base1: #fffff0;
+  --color-base2: #fff6;
+  --color-base3: rgba(255, 255, 255, 0.6);
+  --color-bg: #0a0a0a;
+  --color-bg2: #232323;
+  --color-bg3: #0f0f0f;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  --color-highlight: #342e1f;
+  --color-highlight2: #8a6d1f;
+  --color-base1: #1a1a14;
+  --color-base2: #0006;
+  --color-base3: rgba(0, 0, 0, 0.6);
+  --color-bg: #fafaf5;
+  --color-bg2: #e6e6df;
+  --color-bg3: #f0f0ea;
 }
 
 /* Scrollbar style */
 ::-webkit-scrollbar {
-	width: 12px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-	background: var(--color-bg2);
+  background: var(--color-bg2);
 }
 
 ::-webkit-scrollbar-thumb {
-	background-color: #575758;
-	border-radius: 3px;
-	border: 2px solid var(--color-bg2);
+  background-color: #575758;
+  border-radius: 3px;
+  border: 2px solid var(--color-bg2);
 }
 
 body {
-	background-color: var(--color-bg);
-	font-family: "Aspekta Variable", cursive;
+  background-color: var(--color-bg);
+  font-family: "Aspekta Variable", cursive;
 }
