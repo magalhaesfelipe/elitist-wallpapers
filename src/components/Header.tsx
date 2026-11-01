@@ -107,11 +107,7 @@ export const Header = () => {
             </div>
 
             <div
-              title={
-                theme === "dark"
-                  ? "Change to light mode"
-                  : "Change to dark mode"
-              }
+              title={theme === "dark" ? "Light theme" : "Dark theme"}
               onClick={() => updateTheme()}
               className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
             >
