@@ -1,4 +1,8 @@
+import type { Dispatch, SetStateAction } from "react";
+import { Icon } from "@iconify/react";
 import { folders } from "../constants/folderStructure";
+
+export type Layout = "default" | "flexible";
 
 interface CategoryProps {
   currentFolderName: string;
@@ -7,6 +11,8 @@ interface CategoryProps {
   setSelectedFolder: (name: string) => void;
   showSubDropdown: string[];
   setShowSubDropdown: (paths: string[]) => void;
+  layout: any;
+  setLayout: Dispatch<SetStateAction<Layout>>;
 }
 
 export const Categories2 = ({
@@ -16,10 +22,9 @@ export const Categories2 = ({
   setSelectedFolder,
   showSubDropdown,
   setShowSubDropdown,
+  layout,
+  setLayout,
 }: CategoryProps) => {
-  console.log("currentFolderName", currentFolderName);
-  console.log("selectedFolder ", selectedFolder);
-
   const togglePath = (path: string) => {
     if (showSubDropdown.includes(path)) {
       setShowSubDropdown(showSubDropdown.filter((p) => !p.startsWith(path)));
@@ -93,10 +98,32 @@ export const Categories2 = ({
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 relative">
       {folders?.map((folder, i) => {
         return <div key={i}>{renderOptions(folder, false)}</div>;
       })}
+
+      <div className="absolute -top-12 gap-3 bg-amber400 right-0 flex justify-center">
+        <button
+          onClick={() => {
+            if (layout === "default") return;
+            setLayout("default");
+          }}
+          className={`${layout === "default" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
+        >
+          <Icon icon="bi:grid-3x3-gap-fill" className="text-lg size-3" />
+        </button>
+
+        <button
+          onClick={() => {
+            if (layout === "flexible") return;
+            setLayout("flexible");
+          }}
+          className={`${layout === "flexible" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
+        >
+          <Icon icon="andrsrxn:grid-random" className="text-lg size-3" />
+        </button>
+      </div>
     </div>
   );
 };
