@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { folders, generateUrlStrings } from "../constants/folderStructure";
-// import { Categories } from "../components/Categories";
 import { HeaderTitle } from "../components/HeaderTitle";
-import { Icon } from "@iconify/react";
 import { Footer } from "../components/Footer";
 import { Categories2 } from "../components/Categories2";
+import { Card } from "./Card";
 
 export const Home = () => {
   const initialFolder = folders[0];
@@ -13,36 +12,10 @@ export const Home = () => {
   const [showSubDropdown, setShowSubDropdown] = useState<string[]>([]);
   const urls = generateUrlStrings(selectedFolder);
   const categoriesRef = useRef<HTMLDivElement>(null);
+  const [layout, setLayout] = useState<"default" | "flexible">("default");
 
-  async function downloadImage(imageUrl: string, fileName = "wallpaper.jpg") {
-    try {
-      // Fetch image data
-      const response = await fetch(imageUrl);
-      if (!response.ok) throw new Error("Network response was not ok.");
-
-      // Convert response to a blob (Binary Large Object)
-      const blob = await response.blob();
-
-      // Create a temporary local URL for the blob
-      const objectURL = URL.createObjectURL(blob);
-
-      // Createa hidden <a> element
-      const anchor = document.createElement("a");
-      anchor.style.display = "none";
-      anchor.href = objectURL;
-      anchor.download = fileName;
-
-      // Append to DOM, trigger click, and clean up
-      document.body.appendChild(anchor);
-      anchor.click();
-
-      // Cleanup temporary resources
-      document.body.removeChild(anchor);
-      URL.revokeObjectURL(objectURL);
-    } catch (error) {
-      console.error("Image download failed:", error);
-    }
-  }
+  const containerClass =
+    layout === "default" ? "grid grid-cols-3 gap-px" : "columns-3 gap-px";
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,12 +33,12 @@ export const Home = () => {
   return (
     <>
       <HeaderTitle />
-      <div className="px-3 pb-10 pt-0 ">
+      <div className="px-3 pb-10 pt-0">
         <div
           ref={categoriesRef}
-          className="flex px-1.5 pb-4 py-2 flex-col gap-1 w-full"
+          className="flex px-1.5 mb-5 py-2 flex-col border-b border-bg2 gap-1 w-full"
         >
-          <h4 className=" text-[9px] text-base2">CATEGORIES</h4>
+          <h4 className="text-[9px] text-base2">CATEGORIES</h4>
           <Categories2
             currentFolderName={currentFolderName}
             setCurrentFolderName={setCurrentFolderName}
@@ -73,43 +46,26 @@ export const Home = () => {
             setSelectedFolder={setSelectedFolder}
             showSubDropdown={showSubDropdown}
             setShowSubDropdown={setShowSubDropdown}
+            layout={layout}
+            setLayout={setLayout}
           />
         </div>
 
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-6">
-          {urls?.map((url, i) => (
-            <div
-              key={i}
-              className="relative hover:scale-[1.02] group transition cursor-pointer duration-300  "
-            >
-              <div
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.2) 100%)",
-                  willChange: "opacity",
-                }}
-                className="absolute inset-0 rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100 sm:group-hover:opacity-100"
-              ></div>
+        <button
+          onClick={() =>
+            setLayout((l) => (l === "default" ? "flexible" : "default"))
+          }
+          className="mb-4 text-xs text-base2 hover:text-highlight2 cursor-pointer"
+        >
+          {layout === "default" ? "Grid layout" : "Flexible layout"}
+        </button>
 
-              <img
-                src={url}
-                alt=""
-                className="w-full hover:border-white/20 border-2  border-transparent h-full group-hover:border-white/20 object-cover rounded-2xl "
-              />
-
-              <div className="absolute inset-0  items-end p-4  flex group-hover:opacity-100 opacity-0 bg-transparent">
-                <button
-                  onClick={() => downloadImage(url)}
-                  className="bg-bg  hover:scale-105  cursor-pointer hover:text-highlight2 transition duration-200  rounded-full flex items-center justify-center p-2 text-white"
-                >
-                  <Icon icon="akar-icons:download" className="size-4.5 " />
-                </button>
-              </div>
-            </div>
+        <div className={containerClass}>
+          {urls.map((url) => (
+            <Card key={url} url={url} layout={layout} />
           ))}
         </div>
       </div>
-
       <Footer />
     </>
   );
