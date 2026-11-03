@@ -14,7 +14,7 @@ Want to help improve the platform or just would like to share a cool wallpaper? 
 
 ## Keep in touch! ✉️
 
-Send me an [email](yvy.05@proton.me).
+Send me an [email](https://yvy.05@proton.me).
 
 Let's connect on [LinkedIn](https://www.linkedin.com/in/felipe-magalh%C3%A3es-b2b36a2b6).
 
