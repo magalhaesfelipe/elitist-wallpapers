@@ -14,7 +14,7 @@ export const About = () => {
 
         <p className="">
           🖼️ Elitist Wallpapers is a platform for people looking for high
-          quality, minuciously curated wallpapers. To this day it flabbergasses
+          quality, meticulously curated wallpapers. To this day it flabbergasses
           me the amount of bad quality, generic images on all the major go to,
           wallpaper websites. One may say they need to have as much variety,
           since they target basically every new comer. If that's the case, I had
@@ -24,7 +24,7 @@ export const About = () => {
 
         <p>
           A parallel that can be made is with movie recommendation platforms.
-          Nowdays there's so much variety that it's hard to pick something to
+          Nowadays there's so much variety that it's hard to pick something to
           watch, and when you finally do, you still have a not insignificant
           chance of not liking what you watch(RoP smh). So why not save some
           time and let other people you can trust, curate some lists for you.
