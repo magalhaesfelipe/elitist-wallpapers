@@ -6,7 +6,11 @@ A platform for you who likes to have high quality wallpapers on your devices. �
 
 ## Contributions 🤝
 
-Want to help improve the platform or just would like to share a cool wallpaper? You can create PRs or issues [here](https://github.com/magalhaesfelipe/wallpapers).
+Want to help improve the platform or just would like to share a cool wallpaper? You can create PRs or issues in:
+
+- [The wallpapers repo](https://github.com/magalhaesfelipe/wallpapers) - to add new ones.
+
+- [The platform](https://github.com/magalhaesfelipe/elitist-wallpapers)(This repo) - for new features, fixes etc.
 
 ## Keep in touch! ✉️
 
