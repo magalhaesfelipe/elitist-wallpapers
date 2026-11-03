@@ -2,7 +2,7 @@ import { Footer } from "../components/Footer";
 
 export const About = () => {
   return (
-    <div className="px-[10%] flex-col text-base1  py-10 flex flex-1">
+    <div className="px-[20%] flex-col text-base1  py-10 flex flex-1">
       <div>
         <p>Are you tired of hunting good wallpapers for your desktop?</p>
         <br />
