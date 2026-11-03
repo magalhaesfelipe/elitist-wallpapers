@@ -8,7 +8,10 @@ export const About = () => {
         <br />
 
         <p>
-          <p>Me too, so I created a new platform for that</p>
+          <p>
+            Me too, so I created a new platform for that(this one):
+            elitwallpapers.com
+          </p>
         </p>
         <br />
 
@@ -16,9 +19,10 @@ export const About = () => {
           🖼️ Elitist Wallpapers is a platform for people looking for high
           quality, meticulously curated wallpapers. To this day it flabbergasses
           me the amount of bad quality, generic images on all the major go to,
-          wallpaper websites. One may say they need to have as much variety,
-          since they target basically every new comer. If that's the case, I had
-          to come up with a different approach.
+          wallpaper websites. One may say the huge variety is necessary, since
+          they target every newcomer. But for me it feels the more choices you
+          have, the fewer choices you make. So I chose a different approach:
+          opinionated content.
         </p>
         <br />
 
@@ -27,19 +31,13 @@ export const About = () => {
           Nowadays there's so much variety that it's hard to pick something to
           watch, and when you finally do, you still have a not insignificant
           chance of not liking what you watch(RoP smh). So why not save some
-          time and let other people you can trust, curate some lists for you.
-          Even if you end up not liking it, the chances of it being better than
-          a random pick you made are good enough to give it a try.
+          time and let other people curate stuff for you. Even if you end up not
+          liking it, the chances of it being better than a random pick you made
+          are good enough to give it a try.
         </p>
         <br />
 
-        <p>Now, can you trust me?</p>
-        <br />
-
-        <p>
-          Well, you would have to check for yourself. No login needed, just nice
-          wallpapers ready to download ✅.
-        </p>
+        <p>No login needed, just nice wallpapers ready to download ✅.</p>
         <br />
 
         <p>
@@ -51,9 +49,12 @@ export const About = () => {
 
         <ul className="">
           <option value="">- Expanded view</option>
-          <option value="">- Mobile section</option>
+          <option value="">- Improved responsitivity for mobile</option>
           <option value="">- New categories coming soon</option>
-          <option value=""></option>
+          <option value="">
+            - Mobile section(So far it's focused on horizontal formats for
+            desktop)
+          </option>
         </ul>
         <br />
 
@@ -63,9 +64,9 @@ export const About = () => {
             <strong className="text-highlight2">@magalhaesfelipe</strong>
           </a>
           ), the project is open sourced on Github so anyone can make
-          contributions, feature requests, report issues etc. So far it's a solo
-          project in V1.0 that I developed on my spare time, so if you find it
-          useful, give the repo a ⭐ on{" "}
+          contributions. So far it's a solo project in V1.0 that I developed on
+          my spare time, so if you find it useful, give the repo a ⭐ and share
+          it on other socials, that way more people can use it.
           <a
             href="https://github.com/magalhaesfelipe/elitist-wallpapers"
             target="_blank"
@@ -89,17 +90,19 @@ export const About = () => {
         <br />
 
         <p>
-          For the ones interested, I plan to write an article with more depth on
-          technical details involving the process on my website. And how I did
-          that with a minimal stack. Soon will be posting about it too.
+          For the ones interested, I plan to write an article on my website with
+          more depth on technical details involving the process. A few
+          interesting layout problems and the not so obvious solutions(including
+          recursion) are worth mentioning. Soon will be posting about it.
         </p>
         <br />
         <br />
 
-        <p>P.S: Written with real human thought, not AI generated.</p>
+        <p>- Magalhães, Felipe</p>
+        <br />
         <br />
 
-        <p>- Magalhães, Felipe</p>
+        <p>P.S: Written with human thought, not AI generated.</p>
       </div>
 
       <Footer />
