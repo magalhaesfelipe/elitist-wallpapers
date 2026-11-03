@@ -41,7 +41,7 @@ export const Categories2 = ({
             setSelectedFolder(folder);
             setCurrentFolderName(folder?.categoryLabel);
           }}
-          className={`bg-bg hover:bg-bg3 hover:text-base1 flex items-center justify-center font-semibold w-full text-center px-2 rounded-sm py-1 cursor-pointer transition duration-150 text-[13px] ${
+          className={`bg-bg hover:bg-bg3 flex items-center justify-center font-semibold w-full text-center px-2 rounded-sm py-1 cursor-pointer transition-colors duration-150 text-[13px] ${
             currentFolderName === folder?.categoryLabel
               ? "text-highlight2"
               : "text-base2"
@@ -51,30 +51,21 @@ export const Categories2 = ({
         </button>
       );
     } else {
-      for (let x = 0; x < folder?.subCategories?.length; x++) {
-        renderOptions(folder.subCategories[x]);
-      }
+      // for (let x = 0; x < folder?.subCategories?.length; x++) {
+      //   renderOptions(folder.subCategories[x]);
+      // }
 
       return (
         <div className="relative">
           <button
             onClick={() => togglePath(folder?.path)}
-            className={`bg-bg hover:bg-bg3 hover:text-base1 flex relative items-center justify-center font-semibold w-full text-center px-2 rounded-sm py-1 cursor-pointer transition duration-150 text-[13px] ${
+            className={`bg-bg hover:bg-bg3 flex text-sm relative items-center justify-center font-semibold w-full text-center px-2 rounded-sm py-1 cursor-pointer transition-colors duration-100 text-[13px] ${
               selectedFolder?.path?.includes(folder?.categoryLabel)
                 ? "text-highlight2"
                 : "text-base2"
             }`}
           >
-            <span
-              className={`text-sm ${
-                selectedFolder.path.includes(folder?.categoryLabel) ||
-                folder?.subCategories?.some((s: any) =>
-                  selectedFolder?.path?.includes(s?.categoryLabel),
-                )
-                  ? "text-base1"
-                  : "text-base2"
-              }`}
-            >
+            <span>
               {inDropdown
                 ? folder?.categoryLabel
                 : selectedFolder?.path?.includes(folder?.path)
@@ -109,7 +100,7 @@ export const Categories2 = ({
             if (layout === "default") return;
             setLayout("default");
           }}
-          className={`${layout === "default" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
+          className={`${layout === "default" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition-colors duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
         >
           <Icon icon="bi:grid-3x3-gap-fill" className="text-lg size-3" />
         </button>
@@ -119,7 +110,7 @@ export const Categories2 = ({
             if (layout === "flexible") return;
             setLayout("flexible");
           }}
-          className={`${layout === "flexible" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
+          className={`${layout === "flexible" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition-colors duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
         >
           <Icon icon="andrsrxn:grid-random" className="text-lg size-3" />
         </button>
