@@ -51,8 +51,13 @@ export const Header = () => {
 
               navigate("/");
             }}
-            className="size-10 text-highlight2 cursor-pointer"
+            className="size-13 text-highlight2 cursor-pointer"
           />
+
+          <h1 className="flex flex-col leading-5 font-medium text-xl">
+            <span>Elit</span>
+            <span>Wallpapers </span>
+          </h1>
 
           <div className="border-l border-base2/20  px-2 text-xs  text-base2/30">
             sys.v1
