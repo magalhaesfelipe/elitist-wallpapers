@@ -1,4 +1,4 @@
-# Elitist Wallpapers
+# Elit Wallpapers
 
 [elitwallpapers.com](https://elitwallpapers.com)
 
