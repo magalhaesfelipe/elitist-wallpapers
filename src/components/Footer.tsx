@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className="border-r h-full border-base1/5 flex flex-col justify-between p-3.5 pb-4 text-[10px]">
         <span>SYSTEM ID</span>
         <ul className="text-base3">
-          <option value="">ELITISTWALLPAPERS.COM ©</option>
+          <option value="">ELITWALLPAPERS.COM ©</option>
           <option value="">ALL RIGHTS RESERVED.</option>
         </ul>
       </div>
