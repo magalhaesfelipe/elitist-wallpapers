@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { folders, generateUrlStrings } from "../constants/folderStructure";
-import { HeaderTitle } from "../components/HeaderTitle";
 import { Footer } from "../components/Footer";
 import { Categories2 } from "../components/Categories2";
 import { Card } from "./Card";
@@ -32,7 +31,6 @@ export const Home = () => {
 
   return (
     <>
-      <HeaderTitle />
       <div className="px-3 pb-10 pt-0">
         <div
           ref={categoriesRef}
