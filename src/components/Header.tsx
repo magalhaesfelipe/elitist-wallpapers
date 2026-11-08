@@ -41,89 +41,87 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className="text-base1 border-b border-base1/5 px-[8.8%] py-4">
-      <div className="justify-between flex items-center">
-        <div className="flex items-center gap-2">
-          <Icon
-            icon="boxicons:image-alt"
+    <div className="text-base1 px-[1.7%] h-20 flex justify-between items-center ">
+      <div className="flex items-center h-full gap-2">
+        <Icon
+          icon="boxicons:image-alt"
+          onClick={() => {
+            if (location.pathname === "/") return;
+
+            navigate("/");
+          }}
+          className="size-13 text-highlight2 cursor-pointer"
+        />
+
+        <h1 className="flex flex-col leading-5 font-medium text-xl">
+          <span>Elit</span>
+          <span>Wallpapers </span>
+        </h1>
+
+        <div className=" h-full flex pb-4 items-end pl-1 text-xs  text-base2/30">
+          <span className="">sys.v1</span>
+        </div>
+      </div>
+
+      <div className="flex items-center p-1 ">
+        <div className="border-r border-t border-bg2/95 size-7 rotate-45"></div>
+        <div className="flex items-center border-bg2/95 gap-4 -ml-3.75 -mr-3.75 border-y py-1 px-7 ">
+          <div
+            title="Stars on Github"
+            className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
+          >
+            <a
+              href="https://github.com/magalhaesfelipe/elitist-wallpapers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-0.75"
+            >
+              <Icon
+                icon="ant-design:star-filled"
+                className="cursor-pointer text-[18px]"
+              />
+              <span className="text-sm">{repoData?.stargazers_count}</span>
+            </a>
+          </div>
+
+          <div
+            title="Source code"
+            className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
+          >
+            <a
+              href="https://github.com/magalhaesfelipe/elitist-wallpapers"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon icon="akar-icons:github-fill" className="cursor-pointer " />
+            </a>
+          </div>
+
+          <div
+            title="About"
             onClick={() => {
-              if (location.pathname === "/") return;
-
-              navigate("/");
+              if (location.pathname === "/about") return;
+              navigate("/about");
             }}
-            className="size-13 text-highlight2 cursor-pointer"
-          />
+            className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
+          >
+            <Icon icon="bi:info-circle" className="cursor-pointer" />
+          </div>
 
-          <h1 className="flex flex-col leading-5 font-medium text-xl">
-            <span>Elit</span>
-            <span>Wallpapers </span>
-          </h1>
-
-          <div className="border-l border-base2/20  px-2 text-xs  text-base2/30">
-            sys.v1
+          <div
+            title={theme === "dark" ? "Light theme" : "Dark theme"}
+            onClick={() => updateTheme()}
+            className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
+          >
+            {theme === "dark" ? (
+              <Icon icon="carbon:light" className="cursor-pointer" />
+            ) : (
+              <Icon icon="carbon:moon" className="cursor-pointer" />
+            )}
           </div>
         </div>
 
-        <div>
-          <div className="flex bg-bg3 items-center gap-4 border border-white/15 shadow-lg py-1 px-2.5 rounded-full ">
-            <div
-              title="Stars on Github"
-              className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
-            >
-              <a
-                href="https://github.com/magalhaesfelipe/elitist-wallpapers"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-0.75"
-              >
-                <Icon
-                  icon="ant-design:star-filled"
-                  className="cursor-pointer text-[18px]"
-                />
-                <span className="text-sm">{repoData?.stargazers_count}</span>
-              </a>
-            </div>
-
-            <div
-              title="Source code"
-              className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
-            >
-              <a
-                href="https://github.com/magalhaesfelipe/elitist-wallpapers"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon
-                  icon="akar-icons:github-fill"
-                  className="cursor-pointer "
-                />
-              </a>
-            </div>
-
-            <div
-              title="About"
-              onClick={() => {
-                if (location.pathname === "/about") return;
-                navigate("/about");
-              }}
-              className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
-            >
-              <Icon icon="bi:info-circle" className="cursor-pointer" />
-            </div>
-
-            <div
-              title={theme === "dark" ? "Light theme" : "Dark theme"}
-              onClick={() => updateTheme()}
-              className="cursor-pointer rounded-full p-1.5 bg-transparent hover:bg-bg2"
-            >
-              {theme === "dark" ? (
-                <Icon icon="carbon:light" className="cursor-pointer" />
-              ) : (
-                <Icon icon="carbon:moon" className="cursor-pointer" />
-              )}
-            </div>
-          </div>
-        </div>
+        <div className="border-r border-t border-bg2/95 size-7.5 rotate-45"></div>
       </div>
     </div>
   );
