@@ -49,15 +49,6 @@ export const Home = () => {
           />
         </div>
 
-        <button
-          onClick={() =>
-            setLayout((l) => (l === "default" ? "flexible" : "default"))
-          }
-          className="mb-4 text-xs text-base2 hover:text-highlight2 cursor-pointer"
-        >
-          {layout === "default" ? "Grid layout" : "Flexible layout"}
-        </button>
-
         <div className={containerClass}>
           {urls.map((url) => (
             <Card key={url} url={url} layout={layout} />
