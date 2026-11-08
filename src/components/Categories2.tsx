@@ -90,31 +90,43 @@ export const Categories2 = ({
 
   return (
     <div className="flex items-center gap-2 relative">
+      {/* Layout button */}
+      <div className="bg-amber400 right-0 flex items-center justify-center">
+        {layout === "default" ? (
+          <button
+            onClick={() => {
+              if (layout === "default") {
+                setLayout("flexible");
+              } else {
+                setLayout("default");
+              }
+            }}
+            title="Change view"
+            className={`${layout === "default" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-2.5 rounded-full bg-base2/0 hover:bg-base2/15 transition duration-150 cursor-pointer`}
+          >
+            <Icon icon="akar-icons:grid" className="text-lg size-4" />
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              if (layout === "flexible") {
+                setLayout("default");
+              } else {
+                setLayout("flexible");
+              }
+            }}
+            title="Change view"
+            className={`${layout === "flexible" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-2.5 rounded-full bg-base2/0 hover:bg-base2/15 transition duration-150 cursor-pointer`}
+          >
+            <Icon icon="andrsrxn:grid-random" className="text-lg size-4" />
+          </button>
+        )}
+      </div>
+
+      {/* Category options */}
       {folders?.map((folder, i) => {
         return <div key={i}>{renderOptions(folder, false)}</div>;
       })}
-
-      <div className="absolute -top-12 gap-3 bg-amber400 right-0 flex justify-center">
-        <button
-          onClick={() => {
-            if (layout === "default") return;
-            setLayout("default");
-          }}
-          className={`${layout === "default" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition-colors duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
-        >
-          <Icon icon="bi:grid-3x3-gap-fill" className="text-lg size-3" />
-        </button>
-
-        <button
-          onClick={() => {
-            if (layout === "flexible") return;
-            setLayout("flexible");
-          }}
-          className={`${layout === "flexible" ? "text-highlight hover:text-highlight2" : "text-base2 hover:text-highlight2"} p-1.5 transition-colors duration-150 cursor-pointer rounded-md border flex items-center justify-center`}
-        >
-          <Icon icon="andrsrxn:grid-random" className="text-lg size-3" />
-        </button>
-      </div>
     </div>
   );
 };
