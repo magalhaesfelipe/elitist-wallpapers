@@ -14,7 +14,9 @@ export const Home = () => {
   const [layout, setLayout] = useState<"default" | "flexible">("default");
 
   const containerClass =
-    layout === "default" ? "grid grid-cols-3 gap-px" : "columns-3 gap-px";
+    layout === "default"
+      ? "grid grid-cols-3 gap-[0.4px]"
+      : "columns-3 gap-[0.5px]";
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -36,7 +38,6 @@ export const Home = () => {
           ref={categoriesRef}
           className="flex px-1.5 mb-5 py-2 flex-col border-b border-bg2 gap-1 w-full"
         >
-          <h4 className="text-[9px] text-base2">CATEGORIES</h4>
           <Categories2
             currentFolderName={currentFolderName}
             setCurrentFolderName={setCurrentFolderName}
