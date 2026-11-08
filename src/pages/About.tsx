@@ -16,9 +16,9 @@ export const About = () => {
         <br />
 
         <p className="">
-          🖼️ Elitist Wallpapers is a platform for people looking for high
-          quality, meticulously curated wallpapers. To this day it flabbergasses
-          me the amount of bad quality, generic images on all the major go to,
+          🖼️ Elit Wallpapers is a platform for people looking for high quality,
+          meticulously curated wallpapers. To this day it flabbergasses me the
+          amount of bad quality, generic images on all the major go to,
           wallpaper websites. One may say the huge variety is necessary, since
           they target every newcomer. But for me it feels the more choices you
           have, the fewer choices you make. So I chose a different approach:
@@ -65,15 +65,14 @@ export const About = () => {
           </a>
           ), the project is open sourced on Github so anyone can make
           contributions. So far it's a solo project in V1.0 that I developed on
-          my spare time, so if you find it useful, give the repo a ⭐ and share
-          it on other socials, that way more people can use it.
+          my spare time, so if you find it useful, give us a ⭐ on
           <a
             href="https://github.com/magalhaesfelipe/elitist-wallpapers"
             target="_blank"
           >
-            <strong className="text-highlight2">Github</strong>
+            <strong className="text-highlight2"> Github </strong>
           </a>
-          , that way more people can find it.
+          and share it on other socials, that way more people can use it.
         </p>
         <br />
 
